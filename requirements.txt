@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+transformers
+torch
+langchain
+PyPDF2
+pydantic
+pydantic-settings
