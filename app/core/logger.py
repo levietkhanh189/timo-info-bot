@@ -1,5 +1,3 @@
-# app/core/logger.py
-
 import logging
 
 logging.basicConfig(

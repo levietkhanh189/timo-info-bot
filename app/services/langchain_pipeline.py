@@ -1,11 +1,9 @@
-# app/services/langchain_pipeline.py
-
 from app.services.qa_model import answer_question
 from app.services.data_processing import extract_text_from_cv, extract_text_from_portfolio
 from transformers import AutoTokenizer
 
 # Tải tokenizer từ pipeline để sử dụng trong việc giới hạn ngữ cảnh
-tokenizer = AutoTokenizer.from_pretrained("deepset/bert-large-uncased-whole-word-masking-squad2")
+tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased")
 
 # Trích xuất văn bản từ CV và portfolio
 CV_TEXT = extract_text_from_cv()
@@ -22,4 +20,7 @@ def get_answer(question: str) -> str:
         truncated_context = tokenizer.convert_tokens_to_string(tokens)
     else:
         truncated_context = CONTEXT
-    return answer_question(question, truncated_context)
+    # Tạo prompt cho mô hình QA
+    prompt = f"Below is information from CV and portfolio.\nQuestion: {question}\nPlease answer in detail:"
+
+    return answer_question(prompt, truncated_context)

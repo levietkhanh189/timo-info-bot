@@ -1,5 +1,3 @@
-# app/api/endpoints.py
-
 from fastapi import APIRouter, HTTPException
 from app.models.schemas import Query, Answer
 from app.services.langchain_pipeline import get_answer

@@ -1,13 +1,9 @@
-# app/services/qa_model.py
-
 from transformers import pipeline
 import logging
 
-# Thiết lập logger
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)
 
-# Khởi tạo pipeline QA
 logger.info("Initializing QA pipeline...")
 qa_pipeline = pipeline("question-answering")
 logger.info("QA pipeline initialized successfully.")

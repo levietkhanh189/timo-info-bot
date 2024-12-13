@@ -1,9 +1,5 @@
-# app/services/data_processing.py
-
 from PyPDF2 import PdfReader
 from app.core.config import settings
-
-# app/services/data_processing.py
 
 def extract_text_from_pdf(pdf_path: str) -> str:
     try:
